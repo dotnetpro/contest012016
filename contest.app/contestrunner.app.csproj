@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{BB01ABF7-B882-41F7-97BF-1FA7DCE7D289}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>contestrunner.app</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <OutputPath>..\bin\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ebcpatterns">
+      <HintPath>bin\ebcpatterns.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="contestrunner.app.data\Auftritt.cs" />
+    <Compile Include="contestrunner.app.data\HostReferenz.cs" />
+    <Compile Include="contestrunner.app.data\Prüfungsauftrag.cs" />
+    <Compile Include="contestrunner.app.data\Sandbox.cs" />
+    <Compile Include="contestrunner.app.mainAppDomain\AppDomain_erzeugen.cs" />
+    <Compile Include="contestrunner.app.mainAppDomain\Auftritte_auswählen.cs" />
+    <Compile Include="contestrunner.app.mainAppDomain\Auftritte_prüfen.cs" />
+    <Compile Include="contestrunner.app.mainAppDomain\Auftritte_sammeln.cs" />
+    <Compile Include="contestrunner.app.mainAppDomain\Beiträge_sammeln.cs" />
+    <Compile Include="contestrunner.app.mainAppDomain\Host_in_AppDomain_starten.cs" />
+    <Compile Include="contestrunner.app.mainAppDomain\Host_Typ_bestimmen.cs" />
+    <Compile Include="contestrunner.app.mainAppDomain\Mainboard.cs" />
+    <Compile Include="contestrunner.app.mainAppDomain\Wettbewerbe_sammeln.cs" />
+    <Compile Include="contestrunner.app.sandboxAppDomain\Beitrag_laden.cs" />
+    <Compile Include="contestrunner.app.sandboxAppDomain\Ergebnis_protokollieren.cs" />
+    <Compile Include="contestrunner.app.sandboxAppDomain\Host_instanzieren.cs" />
+    <Compile Include="contestrunner.app.sandboxAppDomain\Host_prüft_Beitrag.cs" />
+    <Compile Include="contestrunner.app.sandboxAppDomain\SandboxMainboard.cs" />
+    <Compile Include="contestrunner.app.viewmodel\ViewModel.cs" />
+    <Compile Include="contestrunner.app.viewmodel\ViewModelMapper.cs" />
+    <Compile Include="contestrunner.app.view\ConsoleView.cs" />
+    <Compile Include="contestrunner.app\AppDomainRunner.cs" />
+    <Compile Include="contestrunner.app\AppDomainRunnerFactory.cs" />
+    <Compile Include="contestrunner.app\IAppDomainRunnerEntryPoint.cs" />
+    <Compile Include="contestrunner.app\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="contestrunner.contract.host.csproj">
+      <Project>{d99abcf1-2b7b-4c05-b5d3-8a9b5e52c891}</Project>
+      <Name>contestrunner.contract.host</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
